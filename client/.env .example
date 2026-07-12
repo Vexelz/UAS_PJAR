@@ -1,0 +1,8 @@
+SECRET_KEY=isi_key_bebas
+DATABASE=database/users.db
+MAIL_SERVER=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USE_TLS=True
+MAIL_USERNAME=contoh@gmail.com
+MAIL_PASSWORD=token_rahasia_di_sini
+BASE_URL=http://127.0.0.1:5000

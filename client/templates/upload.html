@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload TCP · PJAR CORE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #101115;
+            --surface: #1b1d24;
+            --surface-alt: #23252e;
+            --text: #edeef2;
+            --text-muted: #8b8e9b;
+            --accent-red: #ff4b3e;
+            --accent-teal: #2dd4bf;
+            --border: #2e313c;
+        }
+        * { box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+        .display { font-family: 'Archivo Black', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        .container { width: 100%; max-width: 500px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 32px; }
+        .back-link { font-size: 12px; color: var(--text-muted); text-decoration: none; display: inline-block; margin-bottom: 20px; }
+        .back-link:hover { color: var(--text); }
+        
+        h2 { margin: 0 0 6px; font-size: 22px; }
+        .desc { color: var(--text-muted); font-size: 13px; margin: 0 0 24px; }
+        
+        .dropzone {
+            border: 2px dashed var(--border); border-radius: 10px; padding: 40px 20px; text-align: center;
+            background: var(--surface-alt); cursor: pointer; position: relative;
+        }
+        .dropzone:hover { border-color: var(--accent-red); }
+        .dropzone input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+        .dropzone h3 { margin: 0 0 6px; font-size: 15px; }
+        .dropzone p { margin: 0; color: var(--text-muted); font-size: 12px; }
+        
+        .status-msg { border-radius: 8px; padding: 12px 14px; font-size: 13px; margin-bottom: 20px; }
+        .status-success { bg: rgba(45,212,191,0.06); border: 1px solid var(--accent-teal); color: var(--accent-teal); }
+        .status-error { bg: rgba(255,75,62,0.06); border: 1px solid var(--accent-red); color: var(--accent-red); }
+        
+        .submit-btn {
+            width: 100%; border: none; border-radius: 8px; padding: 13px 16px; margin-top: 20px;
+            background: var(--accent-red); color: #fff; font-weight: 700; font-size: 13px;
+            letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/dashboard" class="back-link mono">← BACK_TO_WORKSPACE</a>
+        <h2 class="display">TCP TRANSPORTER</h2>
+        <p class="desc">Unggah file media menuju repositori server utama melalui transmisi data sekuensial TCP.</p>
+
+        {% if success %}
+        <div class="status-msg status-success mono">✓ {{ success }}</div>
+        {% endif %}
+        {% if error %}
+        <div class="status-msg status-error mono">⚠️ {{ error }}</div>
+        {% endif %}
+
+        <form method="POST" enctype="multipart/form-data">
+            <div class="dropzone">
+                <input type="file" name="file" required onchange="document.getElementById('file-name').textContent = this.files[0].name">
+                <h3 id="file-name">Pilih file biner...</h3>
+                <p>Klik di sini untuk menelusuri file dari perangkat lokal Anda</p>
+            </div>
+            <button type="submit" class="submit-btn display">JALANKAN UPLOAD</button>
+        </form>
+    </div>
+</body>
+</html>

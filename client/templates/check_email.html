@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifikasi Email · PJAR SYSTEM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #101115;
+            --surface: #1b1d24;
+            --surface-alt: #23252e;
+            --text: #edeef2;
+            --text-muted: #8b8e9b;
+            --accent-red: #ff4b3e;
+            --accent-teal: #2dd4bf;
+            --border: #2e313c;
+        }
+        * { box-sizing: border-box; }
+        body {
+            background: radial-gradient(circle at 50% 15%, rgba(45,212,191,0.06), transparent 50%), var(--bg);
+            color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh;
+            display: flex; align-items: center; justify-content: center; padding: 24px; margin: 0;
+        }
+        .display { font-family: 'Archivo Black', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        .deck {
+            width: 100%; max-width: 440px; background: var(--surface); border: 1px solid var(--border);
+            border-radius: 14px; padding: 36px 32px 32px; text-align: center;
+            box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+        }
+        .mail-badge {
+            background: var(--surface-alt); border: 1px solid var(--border);
+            border-radius: 8px; padding: 10px 14px; color: var(--accent-teal);
+            font-size: 14px; display: inline-block; margin: 18px 0; max-width: 100%; truncate;
+        }
+        .deck-title { font-size: 24px; margin-bottom: 12px; }
+        .info-text { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="deck">
+        <h1 class="deck-title display text-teal">CEK EMAIL ANDA</h1>
+        <p class="info-text">Tautan enkapsulasi login telah berhasil dikirimkan menuju alamat korespondensi berikut:</p>
+        
+        <div class="mail-badge mono font-bold">{{ email }}</div>
+        
+        <p class="info-text" style="font-size: 13px;">
+            Silakan akses kotak masuk email Anda dan klik tautan verifikasi. Setelah itu, sistem secara otomatis akan mengarahkan sesi Anda langsung ke Dashboard utama.
+        </p>
+    </div>
+</body>
+</html>

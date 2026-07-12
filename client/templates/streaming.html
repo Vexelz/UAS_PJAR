@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Streaming · UDP MODE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0c0f;
+            --surface: #14161d;
+            --text: #edeef2;
+            --text-muted: #6e7282;
+            --accent-teal: #2dd4bf;
+            --border: #22252f;
+        }
+        * { box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+        .display { font-family: 'Archivo Black', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; }
+        .back-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 12px; }
+        .back-btn:hover { color: var(--text); border-color: var(--text-muted); }
+        
+        .tag-live { font-size: 11px; font-weight: 700; color: var(--accent-teal); border: 1px solid rgba(45,212,191,0.2); background: rgba(45,212,191,0.05); padding: 4px 8px; border-radius: 4px; letter-spacing: 0.05em; }
+        
+        main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 32px; }
+        .player-frame { width: 100%; max-width: 880px; background: #000; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 40px 80px -30px rgba(0,0,0,0.8); }
+        video { width: 100%; display: block; focus: outline: none; aspect-ratio: 16/9; }
+        
+        footer { font-size: 11px; text-align: center; color: var(--text-muted); padding: 20px; border-top: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <a href="/dashboard" class="back-btn mono">← EXIT_STREAM</a>
+            <span class="tag-live mono">LIVE_UDP_BROADCAST</span>
+        </div>
+        <div class="mono" style="font-size: 12px; color: var(--text-muted);">SRC: <span style="color:var(--text)">{{ filename }}</span></div>
+    </header>
+
+    <main>
+        <div class="player-frame">
+            <video controls autoplay>
+                <source src="{{ url_for('static', filename='temp/' + filename) }}" type="video/mp4">
+                Browser Anda tidak mendukung elemen pemutaran streaming langsung.
+            </video>
+        </div>
+    </main>
+
+    <footer class="mono">
+        BROADCAST PACKET LAYER · TRANSMISSION CONTROLLER
+    </footer>
+</body>
+</html>

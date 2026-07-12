@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Invalid · PJAR SYSTEM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #101115;
+            --surface: #1b1d24;
+            --text: #edeef2;
+            --text-muted: #8b8e9b;
+            --accent-red: #ff4b3e;
+            --border: #2e313c;
+        }
+        * { box-sizing: border-box; }
+        body { background: radial-gradient(circle at 50% 15%, rgba(255,75,62,0.06), transparent 45%), var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; margin: 0; }
+        .display { font-family: 'Archivo Black', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        .deck { width: 100%; max-width: 400px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 40px 32px; text-align: center; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6); }
+        .icon { font-size: 40px; margin-bottom: 16px; color: var(--accent-red); }
+        h2 { margin: 0 0 10px; font-size: 24px; }
+        p { color: var(--text-muted); font-size: 13.5px; line-height: 1.6; margin: 0 0 28px; }
+        
+        .retry-btn { border: 1px solid var(--border); background: var(--border); color: var(--text); border-radius: 8px; padding: 12px 16px; font-weight: 700; font-size: 13px; text-decoration: none; display: block; text-transform: uppercase; transition: all .15s ease; }
+        .retry-btn:hover { border-color: var(--accent-red); color: var(--accent-red); background: transparent; }
+    </style>
+</head>
+<body>
+    <div class="deck">
+        <div class="icon mono">⚠️</div>
+        <h2 class="display">VERIFIKASI GAGAL</h2>
+        <p>Token atau tautan verifikasi yang Anda akses tidak valid, rusak, atau mungkin telah melewati ambang batas kedaluwarsa keamanan sistem.</p>
+        <a href="/" class="retry-btn display">Kembali ke Gateway</a>
+    </div>
+</body>
+</html>

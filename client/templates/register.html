@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar · PJAR SYSTEM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #101115;
+            --surface: #1b1d24;
+            --surface-alt: #23252e;
+            --text: #edeef2;
+            --text-muted: #8b8e9b;
+            --accent-red: #ff4b3e;
+            --accent-teal: #2dd4bf;
+            --border: #2e313c;
+        }
+        * { box-sizing: border-box; }
+        body {
+            background: radial-gradient(circle at 85% 85%, rgba(45,212,191,0.06), transparent 45%), var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            margin: 0;
+        }
+        .display { font-family: 'Archivo Black', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        .deck {
+            width: 100%;
+            max-width: 400px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 36px 32px 32px;
+            box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+        }
+        .deck-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 28px;
+        }
+        .rec-dot {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+        .rec-dot span.dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--accent-teal);
+            box-shadow: 0 0 0 3px rgba(45,212,191,0.15);
+        }
+        .deck-title { font-size: 28px; margin: 0 0 4px; }
+        .deck-sub { color: var(--text-muted); font-size: 13.5px; margin: 0 0 28px; }
+        
+        .field { margin-bottom: 16px; }
+        .field label {
+            display: block; font-size: 11px; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--text-muted); margin-bottom: 7px;
+        }
+        .field input {
+            width: 100%; background: var(--surface-alt); border: 1px solid var(--border);
+            border-radius: 8px; padding: 12px 14px; color: var(--text); font-size: 14.5px;
+            outline: none; transition: all .15s ease;
+        }
+        .field input:focus { border-color: var(--accent-teal); background: #26282f; }
+        
+        .login-error { font-size: 12.5px; color: var(--accent-red); margin-bottom: 14px; }
+        
+        .play-btn {
+            width: 100%; border: none; border-radius: 8px; padding: 13px 16px;
+            background: transparent; border: 1px solid var(--accent-teal); color: var(--accent-teal);
+            font-weight: 700; font-size: 14.5px; display: flex; align-items: center; justify-content: center;
+            gap: 9px; cursor: pointer; transition: all .12s ease;
+        }
+        .play-btn:hover { background: var(--accent-teal); color: #0a0f0f; }
+        
+        .deck-foot {
+            margin-top: 22px; padding-top: 18px; border-top: 1px dashed var(--border);
+            font-size: 12px; color: var(--text-muted); text-align: center;
+        }
+        .deck-foot a { color: var(--text); text-decoration: none; font-weight: 600; }
+        .deck-foot a:hover { color: var(--accent-teal); }
+    </style>
+</head>
+<body>
+    <div class="deck">
+        <div class="deck-top">
+            <div class="rec-dot"><span class="dot"></span> REGISTRATION</div>
+            <div class="mono" style="font-size:11px; color:var(--text-muted);">NEW_NODE</div>
+        </div>
+        <h1 class="deck-title display">DAFTAR</h1>
+        <p class="deck-sub">Registrasikan node baru ke dalam basis data terenkripsi.</p>
+
+        {% if error %}
+        <div class="login-error mono">⚠️ {{ error }}</div>
+        {% endif %}
+
+        <form method="POST">
+            <div class="field">
+                <label>Nama Pengguna</label>
+                <input type="text" name="username" placeholder="mis. izza" required>
+            </div>
+            <div class="field">
+                <label>Email Sistem</label>
+                <input type="email" name="email" placeholder="name@domain.com" required>
+            </div>
+            <div class="field">
+                <label>Kata Sandi</label>
+                <input type="password" name="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="play-btn display">
+                DAFTAR
+            </button>
+        </form>
+
+        <div class="deck-foot">
+            <a href="/">Kembali ke Login</a>
+        </div>
+    </div>
+</body>
+</html>
