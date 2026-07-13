@@ -39,8 +39,8 @@
         .dropzone p { margin: 0; color: var(--text-muted); font-size: 12px; }
         
         .status-msg { border-radius: 8px; padding: 12px 14px; font-size: 13px; margin-bottom: 20px; }
-        .status-success { bg: rgba(45,212,191,0.06); border: 1px solid var(--accent-teal); color: var(--accent-teal); }
-        .status-error { bg: rgba(255,75,62,0.06); border: 1px solid var(--accent-red); color: var(--accent-red); }
+        .status-success { background: rgba(45,212,191,0.06); border: 1px solid var(--accent-teal); color: var(--accent-teal); }
+        .status-error { background: rgba(255,75,62,0.06); border: 1px solid var(--accent-red); color: var(--accent-red); }
         
         .submit-btn {
             width: 100%; border: none; border-radius: 8px; padding: 13px 16px; margin-top: 20px;
@@ -51,9 +51,9 @@
 </head>
 <body>
     <div class="container">
-        <a href="/dashboard" class="back-link mono">← BACK_TO_WORKSPACE</a>
-        <h2 class="display">TCP TRANSPORTER</h2>
-        <p class="desc">Unggah file media menuju repositori server utama melalui transmisi data sekuensial TCP.</p>
+        <a href="/dashboard" class="back-link mono">← KEMBALI KE WORKSPACE</a>
+        <h2 class="display">TCP UPLOADER</h2>
+        <p class="desc">Kirim file media ke server utama melalui jalur koneksi aman TCP.</p>
 
         {% if success %}
         <div class="status-msg status-success mono">✓ {{ success }}</div>
@@ -65,10 +65,10 @@
         <form method="POST" enctype="multipart/form-data">
             <div class="dropzone">
                 <input type="file" name="file" required onchange="document.getElementById('file-name').textContent = this.files[0].name">
-                <h3 id="file-name">Pilih file biner...</h3>
-                <p>Klik di sini untuk menelusuri file dari perangkat lokal Anda</p>
+                <h3 id="file-name">Pilih file...</h3>
+                <p>Klik di sini untuk mencari file dari perangkat Anda</p>
             </div>
-            <button type="submit" class="submit-btn display">JALANKAN UPLOAD</button>
+            <button type="submit" class="submit-btn display">UPLOAD FILE</button>
         </form>
     </div>
 </body>

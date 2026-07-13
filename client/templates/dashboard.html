@@ -89,32 +89,32 @@
             <div class="brand-title display">PJAR<span class="sep">/</span>CORE</div>
         </div>
         <div class="user-tag mono">
-            <span>NODE_USR: {{ username }}</span>
-            <a href="/logout"><button class="logout-btn display">TERMINATE</button></a>
+            <span>USER: {{ username }}</span>
+            <a href="/logout"><button class="logout-btn display">KELUAR</button></a>
         </div>
     </div>
 
     <div class="wrapper">
         <div class="jumbotron">
-            <h1 class="display">CONTROL WORKSPACE</h1>
-            <p>Arsitektur sistem transmisi terdistribusi. Gunakan modul TCP untuk memuat berkas dengan keandalan penuh, atau gunakan modul UDP untuk inisialisasi visual live stream tanpa latensi.</p>
+            <h1 class="display">DASHBOARD UTAMA</h1>
+            <p>Selamat datang di panel kontrol pengiriman data. Gunakan modul TCP untuk mengunggah file dengan jaminan data utuh, atau gunakan modul UDP untuk memulai pemutaran video cepat tanpa latensi.</p>
         </div>
 
         <div class="grid">
             <div class="panel-card tcp-card">
                 <div>
-                    <div class="card-icon mono">[ PROTOKOL_TCP ]</div>
+                    <div class="card-icon mono">[ MODUL_TCP ]</div>
                     <h3>Upload File (TCP)</h3>
-                    <p>Mekanisme pengiriman berkas data ke repositori penyimpanan lokal server memanfaatkan transport layer yang terstruktur secara sequential.</p>
+                    <p>Kirim file media langsung ke penyimpanan server utama dengan protokol transfer data berkeandalan tinggi.</p>
                 </div>
                 <a href="/upload" class="action-btn display">Buka Modul TCP</a>
             </div>
 
             <div class="panel-card udp-card">
                 <div>
-                    <div class="card-icon mono">[ PROTOKOL_UDP ]</div>
+                    <div class="card-icon mono">[ MODUL_UDP ]</div>
                     <h3>Streaming Video (UDP)</h3>
-                    <p>Inisialisasi visual secara dinamis dari server menggunakan transmisi paket berkecepatan tinggi tanpa overhead retransmisi jaringan.</p>
+                    <p>Putar video secara langsung dari server menggunakan protokol pengiriman paket data berkecepatan tinggi.</p>
                 </div>
                 <a href="/streaming_page" class="action-btn display">Buka Modul UDP</a>
             </div>

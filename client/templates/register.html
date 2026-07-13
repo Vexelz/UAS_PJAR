@@ -97,11 +97,11 @@
 <body>
     <div class="deck">
         <div class="deck-top">
-            <div class="rec-dot"><span class="dot"></span> REGISTRATION</div>
-            <div class="mono" style="font-size:11px; color:var(--text-muted);">NEW_NODE</div>
+            <div class="rec-dot"><span class="dot"></span> REGISTRASI</div>
+            <div class="mono" style="font-size:11px; color:var(--text-muted);">AKUN_BARU</div>
         </div>
         <h1 class="deck-title display">DAFTAR</h1>
-        <p class="deck-sub">Registrasikan node baru ke dalam basis data terenkripsi.</p>
+        <p class="deck-sub">Buat akun baru untuk mengakses sistem.</p>
 
         {% if error %}
         <div class="login-error mono">⚠️ {{ error }}</div>
@@ -110,23 +110,23 @@
         <form method="POST">
             <div class="field">
                 <label>Nama Pengguna</label>
-                <input type="text" name="username" placeholder="mis. izza" required>
+                <input type="text" name="username" placeholder="Nama lengkap atau alias" required>
             </div>
             <div class="field">
-                <label>Email Sistem</label>
-                <input type="email" name="email" placeholder="name@domain.com" required>
+                <label>Email</label>
+                <input type="email" name="email" placeholder="nama@perusahaan.com" required>
             </div>
             <div class="field">
-                <label>Kata Sandi</label>
+                <label>Password</label>
                 <input type="password" name="password" placeholder="••••••••" required>
             </div>
             <button type="submit" class="play-btn display">
-                DAFTAR
+                BUAT AKUN
             </button>
         </form>
 
         <div class="deck-foot">
-            <a href="/">Kembali ke Login</a>
+            Sudah punya akun? <a href="/">Login di sini</a>
         </div>
     </div>
 </body>

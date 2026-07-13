@@ -36,23 +36,23 @@
 <body>
     <header>
         <div style="display: flex; align-items: center; gap: 16px;">
-            <a href="/dashboard" class="back-btn mono">← EXIT_STREAM</a>
-            <span class="tag-live mono">LIVE_UDP_BROADCAST</span>
+            <a href="/dashboard" class="back-btn mono">← KELUAR</a>
+            <span class="tag-live mono">STREAMING_UDP</span>
         </div>
-        <div class="mono" style="font-size: 12px; color: var(--text-muted);">SRC: <span style="color:var(--text)">{{ filename }}</span></div>
+        <div class="mono" style="font-size: 12px; color: var(--text-muted);">File: <span style="color:var(--text)">{{ filename }}</span></div>
     </header>
 
     <main>
         <div class="player-frame">
             <video controls autoplay>
                 <source src="{{ url_for('static', filename='temp/' + filename) }}" type="video/mp4">
-                Browser Anda tidak mendukung elemen pemutaran streaming langsung.
+                Browser Anda tidak mendukung pemutaran video ini.
             </video>
         </div>
     </main>
 
     <footer class="mono">
-        BROADCAST PACKET LAYER · TRANSMISSION CONTROLLER
+        UDP TRANSMISSION CARD · VIDEO PLAYER MODULE
     </footer>
 </body>
 </html>

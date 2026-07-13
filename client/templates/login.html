@@ -105,11 +105,11 @@
 <body>
     <div class="deck">
         <div class="deck-top">
-            <div class="rec-dot"><span class="dot"></span> SECURE GATEWAY</div>
-            <div class="mono" style="font-size:11px; color:var(--text-muted);">SYS_INIT</div>
+            <div class="rec-dot"><span class="dot"></span> AKSES MASUK</div>
+            <div class="mono" style="font-size:11px; color:var(--text-muted);">READY</div>
         </div>
-        <h1 class="deck-title display">UTP<span class="sep">/</span>UDP</h1>
-        <p class="deck-sub">Masuk ke repositori jaringan terdistribusi untuk mengelola media.</p>
+        <h1 class="deck-title display">PJAR<span class="sep">/</span>PORTAL</h1>
+        <p class="deck-sub">Masuk ke sistem pengiriman dan pengelolaan media jaringan.</p>
 
         {% if error %}
         <div class="login-error mono">⚠️ {{ error }}</div>
@@ -117,21 +117,21 @@
 
         <form method="POST">
             <div class="field">
-                <label>Email Sistem</label>
-                <input type="email" name="email" placeholder="name@domain.com" required>
+                <label>Email</label>
+                <input type="email" name="email" placeholder="nama@perusahaan.com" required>
             </div>
             <div class="field">
-                <label>Kata Sandi</label>
+                <label>Password</label>
                 <input type="password" name="password" placeholder="••••••••" required>
             </div>
             <button type="submit" class="play-btn display">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                MASUK TERMINAL
+                MASUK
             </button>
         </form>
 
         <div class="deck-foot">
-            Belum terdaftar? <a href="/register">Buat Akun Baru</a>
+            Belum punya akun? <a href="/register">Daftar di sini</a>
         </div>
     </div>
 </body>

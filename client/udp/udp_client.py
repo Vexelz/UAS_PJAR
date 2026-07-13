@@ -1,42 +1,56 @@
 import socket
 import os
 
-SERVER_IP = "192.168.1.8"      # Ganti dengan IP Ubuntu VM
+SERVER_IP = "192.168.1.8"
 SERVER_PORT = 9001
 
-BUFFER_SIZE = 4096
+BUFFER_SIZE = 65535
 
 TEMP_FOLDER = "static/temp"
 
-os.makedirs(TEMP_FOLDER, exist_ok=True)
+os.makedirs(
+    TEMP_FOLDER,
+    exist_ok=True
+)
 
 
 def request_video_stream(filename):
 
-    filepath = os.path.join(TEMP_FOLDER, filename)
+    filepath = os.path.join(
+        TEMP_FOLDER,
+        filename
+    )
 
-    client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    client = socket.socket(
+        socket.AF_INET,
+        socket.SOCK_DGRAM
+    )
 
-    client.settimeout(5)
+    client.setsockopt(
+        socket.SOL_SOCKET,
+        socket.SO_RCVBUF,
+        1024 * 1024
+    )
+
+    client.settimeout(20)
 
     try:
 
-        # meminta video
         client.sendto(
             filename.encode(),
             (SERVER_IP, SERVER_PORT)
         )
 
-        # menerima ukuran file
         data, _ = client.recvfrom(1024)
 
         if data == b"NOT_FOUND":
-            print("Video tidak ditemukan di server.")
+
+            print("Video tidak ditemukan.")
+
             return None
 
         filesize = int(data.decode())
 
-        # kirim READY
         client.sendto(
             b"READY",
             (SERVER_IP, SERVER_PORT)
@@ -46,9 +60,9 @@ def request_video_stream(filename):
 
         with open(filepath, "wb") as video:
 
-            while True:
+            while received < filesize:
 
-                packet, _ = client.recvfrom(65535)
+                packet, _ = client.recvfrom(BUFFER_SIZE)
 
                 if packet == b"END_VIDEO":
                     break
@@ -57,11 +71,20 @@ def request_video_stream(filename):
 
                 received += len(packet)
 
-                percent = (received / filesize) * 100
+                percent = received / filesize * 100
 
-                print(f"\rDownloading : {percent:.2f}%", end="")
+                print(
+                    f"\rDownloading : {percent:.2f}%",
+                    end=""
+                )
 
         print("\nVideo berhasil diterima.")
+
+        if received != filesize:
+
+            print(
+                f"Peringatan! File tidak lengkap ({received}/{filesize})"
+            )
 
         return filepath
 

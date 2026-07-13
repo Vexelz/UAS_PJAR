@@ -105,12 +105,12 @@
 <body>
     <div class="deck">
         <div class="deck-top">
-            <div class="rec-dot"><span class="dot"></span> AUTH_CHALLENGE</div>
-            <div class="mono" style="font-size:11px; color:var(--text-muted);">MFA_REQUIRED</div>
+            <div class="rec-dot"><span class="dot"></span> KEAMANAN</div>
+            <div class="mono" style="font-size:11px; color:var(--text-muted);">2FA_REQUIRED</div>
         </div>
         
         <h1 class="deck-title display">VERIFIKASI OTP</h1>
-        <p class="deck-sub">Masukkan kode enkripsi 6-digit yang telah dikirimkan ke alamat email Anda.</p>
+        <p class="deck-sub">Masukkan 6 digit kode OTP yang dikirim ke email Anda.</p>
 
         {% if error %}
         <div class="login-error mono">⚠️ {{ error }}</div>
@@ -118,7 +118,7 @@
 
         <form method="POST">
             <div class="field">
-                <label class="mono">SECURE_TOKEN_INPUT</label>
+                <label class="mono">KODE_OTP</label>
                 <input 
                     type="text" 
                     name="otp" 
@@ -130,12 +130,12 @@
                 >
             </div>
             <button type="submit" class="play-btn display">
-                VERIFIKASI TOKEN
+                VERIFIKASI
             </button>
         </form>
 
         <div class="deck-foot">
-            <a href="/" class="mono">← BACK_TO_GATEWAY</a>
+            <a href="/" class="mono">← KEMBALI</a>
         </div>
     </div>
 </body>
